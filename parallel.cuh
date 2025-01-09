@@ -42,8 +42,8 @@ __global__ void place(int *hashtable, int *keys, int n, int size, int t, int max
             tableID = (tableID + 1) % t;
             cnt++;
         }
-        printf("%d unpositioned\n", key);
-        printf("Cycle present. REHASH.\n");
+
+        // Cycle present, REHASH.
     }
 }
 

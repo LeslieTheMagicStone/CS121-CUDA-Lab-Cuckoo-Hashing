@@ -32,12 +32,9 @@ private:
 
     void place(int key, int tableID, int cnt)
     {
+        // Cycle present, rehash.
         if (cnt == maxIter)
-        {
-            printf("%d unpositioned\n", key);
-            printf("Cycle present. REHASH.\n");
             return;
-        }
 
         for (int i = 0; i < t; i++)
         {
