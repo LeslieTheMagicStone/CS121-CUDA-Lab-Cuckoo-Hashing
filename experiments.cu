@@ -30,12 +30,15 @@ int main()
     vector<int> keys;
     generateRandomKeys(keys, n);
 
+    cout << "Sequential Hash Table:" << endl;
     SequentialHash sh(size, t, maxIter);
     sh.insertKeys(keys.data(), n);
-    cout << "Simple demo (Sequential, t=" << t << "): Completed" << endl;
-
-    cout << "Sequential Hash Table:" << endl;
     sh.printTables();
+
+    cout << "Parallel Hash Table:" << endl;
+    ParallelHash ph(size, t, maxIter);
+    ph.insertKeys(keys.data(), n);
+    ph.printTables();
 
     return 0;
 }
