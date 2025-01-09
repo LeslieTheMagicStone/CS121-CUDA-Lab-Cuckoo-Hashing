@@ -5,11 +5,11 @@
 class SequentialHash
 {
 private:
+    int size;
+    int t;
+    int maxIter;
     std::vector<std::vector<int>> hashtable;
     std::vector<int> pos;
-    int size;
-    int maxIter;
-    int t;
 
     void initTable()
     {
@@ -59,20 +59,18 @@ private:
     }
 
 public:
-    SequentialHash(int size, int maxIter, int t) : size(size), maxIter(maxIter), t(t), hashtable(t, std::vector<int>(size)), pos(t) {}
+    SequentialHash(int size, int t, int maxIter) : size(size), t(t), maxIter(maxIter), hashtable(t, std::vector<int>(size)), pos(t) {}
 
     void insertKeys(int keys[], int n)
     {
         initTable();
         for (int i = 0, cnt = 0; i < n; i++, cnt = 0)
             place(keys[i], 0, cnt);
-        printTables();
     }
 
     void printTables()
     {
         printf("Final hash tables:\n");
-
         for (int i = 0; i < t; i++, printf("\n"))
             for (int j = 0; j < size; j++)
                 (hashtable[i][j] == INT_MIN) ? printf("- ") : printf("%d ", hashtable[i][j]);
