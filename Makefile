@@ -6,6 +6,8 @@ all: experiments
 
 experiments: experiments.cu parallel.cuh vanilla.hpp
 	${NVCC} $< -o $@ ${CXXFLAGS}
+	./experiments
+	clean
 
 .PHONY: clean
 clean:
