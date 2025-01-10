@@ -54,5 +54,72 @@ I run the benchmark on
     \item GPU: NVIDIA GeForce RTX 4060
 \end{itemize}
 
+\section{Experiments}
+
+\begin{itemize}
+    \item \textbf{Experiment 1}: Create a hash table of $size=2^{25}$ in GPU global memory, where each table entry stores a
+    32-bit integer. Insert a set of $n=2^{24}$ random integer keys into the hash table, for s =
+    10,11, … 24.
+    \item \textbf{Experiment 2}: Insert a set of $n=2^{24}$ random keys into a hash table of size $size=2^{25}$, then perform lookups
+    for the following sets of keys $S_i$, where
+    (100 - 10i) percent of the keys are randomly chosen from S, and the remainder are
+    random 32-bit keys.
+    \item \textbf{Experiment 3}: Fix a set of $n=2^{24}$ random keys, and measure the time to insert the keys into hash
+    tables of sizes 1.1, 1.2, … , 2. Also, measure the insertion times for hash tables of
+    sizes 1.01, 1.02 and 1.05. Terminate the experiment if it takes too long and report
+    the time used.
+    \item \textbf{Experiment 4}: Using $n=2^{24}$ random keys and a hash table of size 1.4, experiment with different
+    bounds on the maximum length of an eviction chain before restarting. Which bound
+    gives the best running time for constructing the hash table? Note however you are not
+    required to find the optimal bound.
+\end{itemize}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{../figs/experiment1_t2.png}
+    \caption{Experiment 1 with 2 hash functions}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{../figs/experiment1_t3.png}
+    \caption{Experiment 1 with 3 hash functions}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{../figs/experiment2_t2.png}
+    \caption{Experiment 2 with 2 hash functions}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{../figs/experiment2_t3.png}
+    \caption{Experiment 2 with 3 hash functions}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{../figs/experiment3_t2.png}
+    \caption{Experiment 3 with 2 hash functions}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{../figs/experiment3_t3.png}
+    \caption{Experiment 3 with 3 hash functions}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{../figs/experiment4_t2.png}
+    \caption{Experiment 4 with 2 hash functions}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{../figs/experiment4_t3.png}
+    \caption{Experiment 4 with 3 hash functions}
+\end{figure}
 
 \end{document}
