@@ -50,8 +50,8 @@ void experiment1(uint32_t t)
         generateRandomKeys(keys, n);
 
         uint32_t rehashesSeq = 0;
-        auto start = high_resolution_clock::now();
         SequentialHash sh(size, t, maxIter);
+        auto start = high_resolution_clock::now();
         sh.insertKeys(keys.data(), n, rehashesSeq);
         auto end = high_resolution_clock::now();
         auto durationSeq = duration_cast<microseconds>(end - start).count();
@@ -83,7 +83,7 @@ void experiment2(uint32_t t)
             uint32_t idx = rand() % n;
             S[i].push_back(keys[idx]);
         }
-        
+
         auto start = high_resolution_clock::now();
         for (uint32_t k = 0; k < n; ++k)
             sh.lookupKey(S[i][k]);
@@ -94,17 +94,44 @@ void experiment2(uint32_t t)
     }
 }
 
+void experiment3(uint32_t t)
+{
+    uint32_t n = pow(2, 24);
+    uint32_t maxIter = 4 * log2(n);
+    vector<uint32_t> keys;
+    generateRandomKeys(keys, n);
+
+    vector<double> alpha = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 1.01, 1.02, 1.05};
+
+    for (double i : alpha)
+    {
+        uint32_t size = (uint32_t)(i * n);
+        SequentialHash sh(size, t, maxIter);
+        uint32_t rehashesSeq = 0;
+        auto start = high_resolution_clock::now();
+        sh.insertKeys(keys.data(), n, rehashesSeq);
+        auto end = high_resolution_clock::now();
+        auto durationSeq = duration_cast<microseconds>(end - start).count();
+
+        printf("E3 t=%u size=%.2lfn [Sequential] %8ld us, rehashes: %4u\n", t, i, durationSeq, rehashesSeq);
+    }
+}
+
 int main()
 {
     simpleDemo();
 
-    cout << "Experiment 1:" << endl;
-    experiment1(2);
-    experiment1(3);
+    // printf ("Experiment 1:\n");
+    // experiment1(2);
+    // experiment1(3);
 
-    cout << "Experiment 2:" << endl;
-    experiment2(2);
-    experiment2(3);
+    // printf ("Experiment 2:\n");
+    // experiment2(2);
+    // experiment2(3);
+
+    printf("Experiment3:\n");
+    experiment3(2);
+    experiment3(3);
 
     return 0;
 }

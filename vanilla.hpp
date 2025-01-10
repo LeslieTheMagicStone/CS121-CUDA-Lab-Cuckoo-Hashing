@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <cstdint>
 
-const int MAX_DEPTH = 100;
+const int MAX_DEPTH = 5;
 const uint32_t EMPTY = 0;
 
 class SequentialHash
@@ -92,10 +92,11 @@ private:
 
     bool rehash(uint32_t &rehashes)
     {
-        printf("current rehashes: %d\n", rehashes);
         // If exceeds max rehashing depth, abort.
         if (rehashes > MAX_DEPTH)
             return false;
+
+        rehashes++;
 
         // Generate new set of hash functions.
         seed = rand(); // Pick a new seed
