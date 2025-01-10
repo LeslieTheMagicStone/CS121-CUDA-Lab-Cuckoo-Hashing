@@ -139,6 +139,7 @@ void experiment3(uint32_t t)
         for (int iter = 0; iter < 5; iter++)
         {
             uint32_t size = (uint32_t)(i * n);
+
             SequentialHash sh(size, t, maxIter);
             uint32_t rehashesSeq = 0;
             auto start = high_resolution_clock::now();
@@ -146,7 +147,14 @@ void experiment3(uint32_t t)
             auto end = high_resolution_clock::now();
             auto durationSeq = duration_cast<microseconds>(end - start).count();
 
-            printf("E3-%d t=%u size=%.2lfn [Sequential] %8ld us, rehashes: %4u\n", iter, t, i, durationSeq, rehashesSeq);
+            ParallelHash ph(size, t, maxIter);
+            uint32_t rehashesPar = 0;
+            start = high_resolution_clock::now();
+            ph.insertKeys(keys.data(), n, rehashesPar);
+            end = high_resolution_clock::now();
+            auto durationPar = duration_cast<microseconds>(end - start).count();
+
+            printf("E3-%d t=%u size=%.2lfn [Sequential] %8ld us, rehashes: %4u | [CUDA] %8ld us, rehashes: %4u\n", iter, t, i, durationSeq, rehashesSeq, durationPar, rehashesPar);
         }
     }
 }
@@ -194,9 +202,9 @@ int main()
     // experiment1(2);
     // experiment1(3);
 
-    printf("Experiment 2:\n");
-    experiment2(2);
-    experiment2(3);
+    // printf("Experiment 2:\n");
+    // experiment2(2);
+    // experiment2(3);
 
     printf("Experiment3:\n");
     experiment3(2);

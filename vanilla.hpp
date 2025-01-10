@@ -163,7 +163,7 @@ public:
         for (uint32_t i = 0; i < n; i++)
             if (!place(keys[i], 0, 0, rehashes))
             {
-                std::cout << "Failed to insert key " << keys[i] << " after exceeding max depth." << std::endl;
+                std::cout << "[Sequential] Exceeded maximum rehash depth. Abort." << std::endl;
                 return;
             }
     }

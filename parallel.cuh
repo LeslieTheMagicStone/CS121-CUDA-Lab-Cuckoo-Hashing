@@ -133,7 +133,7 @@ private:
     {
         if (rehashCount >= MAX_DEPTH)
         {
-            std::cerr << "Exceeded maximum rehash depth" << std::endl;
+            std::cerr << "[CUDA] Exceeded maximum rehash depth. Abort." << std::endl;
             return;
         }
 
