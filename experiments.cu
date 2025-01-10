@@ -204,7 +204,7 @@ void experiment4(uint32_t t)
                 bestAlphaPar = i;
             }
 
-            printf("E4-%d t=%u maxIter=%-2dlogn [Sequential] %8ld us, rehashes: %4u | [CUDA] %8ld us, rehashes: %4u\n", iter, t, i, durationSeq, rehashesSeq, durationPar, rehashesPar);
+            printf("E4-%d t=%u maxIter=%d logn [Sequential] %8ld us, rehashes: %4u | [CUDA] %8ld us, rehashes: %4u\n", iter, t, i, durationSeq, rehashesSeq, durationPar, rehashesPar);
         }
     }
 

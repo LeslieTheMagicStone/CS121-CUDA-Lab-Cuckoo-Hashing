@@ -1,0 +1,527 @@
+(base) magstn@magstn:~/git/CS121-CUDA-Lab-Cuckoo-Hashing$ make
+nvcc experiments.cu -o build-experiments -std=c++11 
+./build-experiments
+Running simple demo with n=8, t=2, size=10
+Final table:
+Final hash tables:
+7 6 5 4 - - - 3 - 8 
+- - - - - - - 1 2 - 
+
+Final table:
+Final hash tables:
+7 8 - - 1 5 4 2 - 6 
+- - - - - - 3 - - - 
+
+Experiment 1:
+E1-0 t=2 exp=10 [Sequential]   424617 us, rehashes:    0 | [CUDA]     5108 us, rehashes:    0
+E1-1 t=2 exp=10 [Sequential]   437375 us, rehashes:    0 | [CUDA]     5442 us, rehashes:    0
+E1-2 t=2 exp=10 [Sequential]   463783 us, rehashes:    0 | [CUDA]     4813 us, rehashes:    0
+E1-3 t=2 exp=10 [Sequential]   427974 us, rehashes:    0 | [CUDA]     5118 us, rehashes:    0
+E1-4 t=2 exp=10 [Sequential]   424737 us, rehashes:    0 | [CUDA]     5374 us, rehashes:    0
+E1-0 t=2 exp=11 [Sequential]   420270 us, rehashes:    0 | [CUDA]     5585 us, rehashes:    0
+E1-1 t=2 exp=11 [Sequential]   462525 us, rehashes:    0 | [CUDA]     5310 us, rehashes:    0
+E1-2 t=2 exp=11 [Sequential]   418619 us, rehashes:    0 | [CUDA]     5207 us, rehashes:    0
+E1-3 t=2 exp=11 [Sequential]   420429 us, rehashes:    0 | [CUDA]     6194 us, rehashes:    0
+E1-4 t=2 exp=11 [Sequential]   443342 us, rehashes:    0 | [CUDA]     5095 us, rehashes:    0
+E1-0 t=2 exp=12 [Sequential]   441779 us, rehashes:    0 | [CUDA]    24968 us, rehashes:    0
+E1-1 t=2 exp=12 [Sequential]   420074 us, rehashes:    0 | [CUDA]    25850 us, rehashes:    0
+E1-2 t=2 exp=12 [Sequential]   422244 us, rehashes:    0 | [CUDA]    25529 us, rehashes:    0
+E1-3 t=2 exp=12 [Sequential]   424259 us, rehashes:    0 | [CUDA]    59760 us, rehashes:    0
+E1-4 t=2 exp=12 [Sequential]   420020 us, rehashes:    0 | [CUDA]    59758 us, rehashes:    0
+E1-0 t=2 exp=13 [Sequential]   419909 us, rehashes:    0 | [CUDA]    61861 us, rehashes:    0
+E1-1 t=2 exp=13 [Sequential]   417536 us, rehashes:    0 | [CUDA]    58501 us, rehashes:    0
+E1-2 t=2 exp=13 [Sequential]   421363 us, rehashes:    0 | [CUDA]    25684 us, rehashes:    0
+E1-3 t=2 exp=13 [Sequential]   438182 us, rehashes:    0 | [CUDA]    28072 us, rehashes:    0
+E1-4 t=2 exp=13 [Sequential]   426609 us, rehashes:    0 | [CUDA]    16852 us, rehashes:    0
+E1-0 t=2 exp=14 [Sequential]   422802 us, rehashes:    0 | [CUDA]    59741 us, rehashes:    0
+E1-1 t=2 exp=14 [Sequential]   421636 us, rehashes:    0 | [CUDA]    59386 us, rehashes:    0
+E1-2 t=2 exp=14 [Sequential]   424012 us, rehashes:    0 | [CUDA]    25930 us, rehashes:    0
+E1-3 t=2 exp=14 [Sequential]   423266 us, rehashes:    0 | [CUDA]    25736 us, rehashes:    0
+E1-4 t=2 exp=14 [Sequential]   421420 us, rehashes:    0 | [CUDA]    26625 us, rehashes:    0
+E1-0 t=2 exp=15 [Sequential]   423879 us, rehashes:    0 | [CUDA]    65788 us, rehashes:    0
+E1-1 t=2 exp=15 [Sequential]   448447 us, rehashes:    0 | [CUDA]    61082 us, rehashes:    0
+E1-2 t=2 exp=15 [Sequential]   441199 us, rehashes:    0 | [CUDA]    60632 us, rehashes:    0
+E1-3 t=2 exp=15 [Sequential]   430800 us, rehashes:    0 | [CUDA]    26140 us, rehashes:    0
+E1-4 t=2 exp=15 [Sequential]   430694 us, rehashes:    0 | [CUDA]    25414 us, rehashes:    0
+E1-0 t=2 exp=16 [Sequential]   428807 us, rehashes:    0 | [CUDA]    27063 us, rehashes:    0
+E1-1 t=2 exp=16 [Sequential]   445471 us, rehashes:    0 | [CUDA]    60857 us, rehashes:    0
+E1-2 t=2 exp=16 [Sequential]   448313 us, rehashes:    0 | [CUDA]    28345 us, rehashes:    0
+E1-3 t=2 exp=16 [Sequential]   437196 us, rehashes:    0 | [CUDA]    28195 us, rehashes:    0
+E1-4 t=2 exp=16 [Sequential]   428210 us, rehashes:    0 | [CUDA]    25866 us, rehashes:    0
+E1-0 t=2 exp=17 [Sequential]   438616 us, rehashes:    0 | [CUDA]    63527 us, rehashes:    0
+E1-1 t=2 exp=17 [Sequential]   437222 us, rehashes:    0 | [CUDA]    65714 us, rehashes:    0
+E1-2 t=2 exp=17 [Sequential]   433988 us, rehashes:    0 | [CUDA]    63629 us, rehashes:    0
+E1-3 t=2 exp=17 [Sequential]   436878 us, rehashes:    0 | [CUDA]    30627 us, rehashes:    0
+E1-4 t=2 exp=17 [Sequential]   443655 us, rehashes:    0 | [CUDA]    27342 us, rehashes:    0
+E1-0 t=2 exp=18 [Sequential]   454254 us, rehashes:    0 | [CUDA]    28487 us, rehashes:    0
+E1-1 t=2 exp=18 [Sequential]   454977 us, rehashes:    0 | [CUDA]    65944 us, rehashes:    0
+E1-2 t=2 exp=18 [Sequential]   456536 us, rehashes:    0 | [CUDA]    29656 us, rehashes:    0
+E1-3 t=2 exp=18 [Sequential]   453587 us, rehashes:    0 | [CUDA]    28579 us, rehashes:    0
+E1-4 t=2 exp=18 [Sequential]   452717 us, rehashes:    0 | [CUDA]    65397 us, rehashes:    0
+E1-0 t=2 exp=19 [Sequential]   484251 us, rehashes:    0 | [CUDA]    31005 us, rehashes:    0
+E1-1 t=2 exp=19 [Sequential]   485179 us, rehashes:    0 | [CUDA]    30960 us, rehashes:    0
+E1-2 t=2 exp=19 [Sequential]   486071 us, rehashes:    0 | [CUDA]    74473 us, rehashes:    0
+E1-3 t=2 exp=19 [Sequential]   487937 us, rehashes:    0 | [CUDA]    31489 us, rehashes:    0
+E1-4 t=2 exp=19 [Sequential]   485713 us, rehashes:    0 | [CUDA]    31497 us, rehashes:    0
+E1-0 t=2 exp=20 [Sequential]   561050 us, rehashes:    0 | [CUDA]    34266 us, rehashes:    0
+E1-1 t=2 exp=20 [Sequential]   556318 us, rehashes:    0 | [CUDA]    34099 us, rehashes:    0
+E1-2 t=2 exp=20 [Sequential]   548748 us, rehashes:    0 | [CUDA]    34097 us, rehashes:    0
+E1-3 t=2 exp=20 [Sequential]   555166 us, rehashes:    0 | [CUDA]    34481 us, rehashes:    0
+E1-4 t=2 exp=20 [Sequential]   554553 us, rehashes:    0 | [CUDA]    79028 us, rehashes:    0
+E1-0 t=2 exp=21 [Sequential]   690837 us, rehashes:    0 | [CUDA]    38344 us, rehashes:    0
+E1-1 t=2 exp=21 [Sequential]   691185 us, rehashes:    0 | [CUDA]    38068 us, rehashes:    0
+E1-2 t=2 exp=21 [Sequential]   688139 us, rehashes:    0 | [CUDA]    38568 us, rehashes:    0
+E1-3 t=2 exp=21 [Sequential]   716946 us, rehashes:    0 | [CUDA]    36400 us, rehashes:    0
+E1-4 t=2 exp=21 [Sequential]   684720 us, rehashes:    0 | [CUDA]    81344 us, rehashes:    0
+E1-0 t=2 exp=22 [Sequential]   993163 us, rehashes:    0 | [CUDA]   105479 us, rehashes:    0
+E1-1 t=2 exp=22 [Sequential]   947428 us, rehashes:    0 | [CUDA]   104823 us, rehashes:    0
+E1-2 t=2 exp=22 [Sequential]  1009067 us, rehashes:    0 | [CUDA]    53611 us, rehashes:    0
+E1-3 t=2 exp=22 [Sequential]   970906 us, rehashes:    0 | [CUDA]   105720 us, rehashes:    0
+E1-4 t=2 exp=22 [Sequential]   962958 us, rehashes:    0 | [CUDA]    55237 us, rehashes:    0
+E1-0 t=2 exp=23 [Sequential]  1532921 us, rehashes:    0 | [CUDA]   157373 us, rehashes:    0
+E1-1 t=2 exp=23 [Sequential]  1550007 us, rehashes:    0 | [CUDA]   158244 us, rehashes:    0
+E1-2 t=2 exp=23 [Sequential]  1639281 us, rehashes:    0 | [CUDA]   157518 us, rehashes:    0
+E1-3 t=2 exp=23 [Sequential]  1618486 us, rehashes:    0 | [CUDA]   158240 us, rehashes:    0
+E1-4 t=2 exp=23 [Sequential]  1796634 us, rehashes:    0 | [CUDA]   156809 us, rehashes:    0
+E1-0 t=2 exp=24 [Sequential]  3078754 us, rehashes:    0 | [CUDA]   243862 us, rehashes:    0
+E1-1 t=2 exp=24 [Sequential]  2917632 us, rehashes:    0 | [CUDA]   274434 us, rehashes:    0
+E1-2 t=2 exp=24 [Sequential]  2867005 us, rehashes:    0 | [CUDA]   119608 us, rehashes:    0
+E1-3 t=2 exp=24 [Sequential]  2881115 us, rehashes:    0 | [CUDA]   214912 us, rehashes:    0
+E1-4 t=2 exp=24 [Sequential]  2912333 us, rehashes:    0 | [CUDA]   119758 us, rehashes:    0
+E1-0 t=3 exp=10 [Sequential]   635112 us, rehashes:    0 | [CUDA]    37294 us, rehashes:    0
+E1-1 t=3 exp=10 [Sequential]   631983 us, rehashes:    0 | [CUDA]    79919 us, rehashes:    0
+E1-2 t=3 exp=10 [Sequential]   640405 us, rehashes:    0 | [CUDA]    81780 us, rehashes:    0
+E1-3 t=3 exp=10 [Sequential]   643174 us, rehashes:    0 | [CUDA]    83258 us, rehashes:    0
+E1-4 t=3 exp=10 [Sequential]   631228 us, rehashes:    0 | [CUDA]    82111 us, rehashes:    0
+E1-0 t=3 exp=11 [Sequential]   630111 us, rehashes:    0 | [CUDA]    36931 us, rehashes:    0
+E1-1 t=3 exp=11 [Sequential]   679691 us, rehashes:    0 | [CUDA]    38110 us, rehashes:    0
+E1-2 t=3 exp=11 [Sequential]   668183 us, rehashes:    0 | [CUDA]    82333 us, rehashes:    0
+E1-3 t=3 exp=11 [Sequential]   635905 us, rehashes:    0 | [CUDA]    81702 us, rehashes:    0
+E1-4 t=3 exp=11 [Sequential]   626491 us, rehashes:    0 | [CUDA]    82580 us, rehashes:    0
+E1-0 t=3 exp=12 [Sequential]   630414 us, rehashes:    0 | [CUDA]    81092 us, rehashes:    0
+E1-1 t=3 exp=12 [Sequential]   638698 us, rehashes:    0 | [CUDA]    36078 us, rehashes:    0
+E1-2 t=3 exp=12 [Sequential]   627027 us, rehashes:    0 | [CUDA]    36553 us, rehashes:    0
+E1-3 t=3 exp=12 [Sequential]   631511 us, rehashes:    0 | [CUDA]    82118 us, rehashes:    0
+E1-4 t=3 exp=12 [Sequential]   630854 us, rehashes:    0 | [CUDA]    82525 us, rehashes:    0
+E1-0 t=3 exp=13 [Sequential]   632959 us, rehashes:    0 | [CUDA]    81790 us, rehashes:    0
+E1-1 t=3 exp=13 [Sequential]   627606 us, rehashes:    0 | [CUDA]    81869 us, rehashes:    0
+E1-2 t=3 exp=13 [Sequential]   635079 us, rehashes:    0 | [CUDA]    84141 us, rehashes:    0
+E1-3 t=3 exp=13 [Sequential]   634850 us, rehashes:    0 | [CUDA]    81826 us, rehashes:    0
+E1-4 t=3 exp=13 [Sequential]   628338 us, rehashes:    0 | [CUDA]    81685 us, rehashes:    0
+E1-0 t=3 exp=14 [Sequential]   648457 us, rehashes:    0 | [CUDA]    37891 us, rehashes:    0
+E1-1 t=3 exp=14 [Sequential]   632093 us, rehashes:    0 | [CUDA]    37212 us, rehashes:    0
+E1-2 t=3 exp=14 [Sequential]   629252 us, rehashes:    0 | [CUDA]    83465 us, rehashes:    0
+E1-3 t=3 exp=14 [Sequential]   651940 us, rehashes:    0 | [CUDA]    82962 us, rehashes:    0
+E1-4 t=3 exp=14 [Sequential]   637819 us, rehashes:    0 | [CUDA]    82508 us, rehashes:    0
+E1-0 t=3 exp=15 [Sequential]   634070 us, rehashes:    0 | [CUDA]    83822 us, rehashes:    0
+E1-1 t=3 exp=15 [Sequential]   644537 us, rehashes:    0 | [CUDA]    83834 us, rehashes:    0
+E1-2 t=3 exp=15 [Sequential]   637910 us, rehashes:    0 | [CUDA]    37970 us, rehashes:    0
+E1-3 t=3 exp=15 [Sequential]   632868 us, rehashes:    0 | [CUDA]    37872 us, rehashes:    0
+E1-4 t=3 exp=15 [Sequential]   633143 us, rehashes:    0 | [CUDA]    82952 us, rehashes:    0
+E1-0 t=3 exp=16 [Sequential]   637855 us, rehashes:    0 | [CUDA]    84561 us, rehashes:    0
+E1-1 t=3 exp=16 [Sequential]   636543 us, rehashes:    0 | [CUDA]    85747 us, rehashes:    0
+E1-2 t=3 exp=16 [Sequential]   663416 us, rehashes:    0 | [CUDA]    98523 us, rehashes:    0
+E1-3 t=3 exp=16 [Sequential]   660856 us, rehashes:    0 | [CUDA]    36170 us, rehashes:    0
+E1-4 t=3 exp=16 [Sequential]   640915 us, rehashes:    0 | [CUDA]    39246 us, rehashes:    0
+E1-0 t=3 exp=17 [Sequential]   678468 us, rehashes:    0 | [CUDA]    85412 us, rehashes:    0
+E1-1 t=3 exp=17 [Sequential]   663057 us, rehashes:    0 | [CUDA]    87989 us, rehashes:    0
+E1-2 t=3 exp=17 [Sequential]   650723 us, rehashes:    0 | [CUDA]    86428 us, rehashes:    0
+E1-3 t=3 exp=17 [Sequential]   682187 us, rehashes:    0 | [CUDA]    36379 us, rehashes:    0
+E1-4 t=3 exp=17 [Sequential]   734552 us, rehashes:    0 | [CUDA]    39504 us, rehashes:    0
+E1-0 t=3 exp=18 [Sequential]   735666 us, rehashes:    0 | [CUDA]    44452 us, rehashes:    0
+E1-1 t=3 exp=18 [Sequential]   730677 us, rehashes:    0 | [CUDA]    40742 us, rehashes:    0
+E1-2 t=3 exp=18 [Sequential]   765331 us, rehashes:    0 | [CUDA]    84584 us, rehashes:    0
+E1-3 t=3 exp=18 [Sequential]   802714 us, rehashes:    0 | [CUDA]    39502 us, rehashes:    0
+E1-4 t=3 exp=18 [Sequential]   805184 us, rehashes:    0 | [CUDA]    90281 us, rehashes:    0
+E1-0 t=3 exp=19 [Sequential]   752486 us, rehashes:    0 | [CUDA]    90666 us, rehashes:    0
+E1-1 t=3 exp=19 [Sequential]   732376 us, rehashes:    0 | [CUDA]   127992 us, rehashes:    0
+E1-2 t=3 exp=19 [Sequential]   724138 us, rehashes:    0 | [CUDA]    44392 us, rehashes:    0
+E1-3 t=3 exp=19 [Sequential]   717904 us, rehashes:    0 | [CUDA]    41218 us, rehashes:    0
+E1-4 t=3 exp=19 [Sequential]   720736 us, rehashes:    0 | [CUDA]   124554 us, rehashes:    0
+E1-0 t=3 exp=20 [Sequential]   802214 us, rehashes:    0 | [CUDA]    49855 us, rehashes:    0
+E1-1 t=3 exp=20 [Sequential]   830602 us, rehashes:    0 | [CUDA]    97231 us, rehashes:    0
+E1-2 t=3 exp=20 [Sequential]  1020917 us, rehashes:    0 | [CUDA]    43422 us, rehashes:    0
+E1-3 t=3 exp=20 [Sequential]   808472 us, rehashes:    0 | [CUDA]    97322 us, rehashes:    0
+E1-4 t=3 exp=20 [Sequential]   794507 us, rehashes:    0 | [CUDA]   100274 us, rehashes:    0
+E1-0 t=3 exp=21 [Sequential]   948938 us, rehashes:    0 | [CUDA]   109874 us, rehashes:    0
+E1-1 t=3 exp=21 [Sequential]   942485 us, rehashes:    0 | [CUDA]    49595 us, rehashes:    0
+E1-2 t=3 exp=21 [Sequential]   964382 us, rehashes:    0 | [CUDA]   111997 us, rehashes:    0
+E1-3 t=3 exp=21 [Sequential]   948117 us, rehashes:    0 | [CUDA]   109874 us, rehashes:    0
+E1-4 t=3 exp=21 [Sequential]   973738 us, rehashes:    0 | [CUDA]    48896 us, rehashes:    0
+E1-0 t=3 exp=22 [Sequential]  1317290 us, rehashes:    0 | [CUDA]    67833 us, rehashes:    0
+E1-1 t=3 exp=22 [Sequential]  1314028 us, rehashes:    0 | [CUDA]    60118 us, rehashes:    0
+E1-2 t=3 exp=22 [Sequential]  1324409 us, rehashes:    0 | [CUDA]    64234 us, rehashes:    0
+E1-3 t=3 exp=22 [Sequential]  1317395 us, rehashes:    0 | [CUDA]    60187 us, rehashes:    0
+E1-4 t=3 exp=22 [Sequential]  1293525 us, rehashes:    0 | [CUDA]   143550 us, rehashes:    0
+E1-0 t=3 exp=23 [Sequential]  2119689 us, rehashes:    0 | [CUDA]    82614 us, rehashes:    0
+E1-1 t=3 exp=23 [Sequential]  2016859 us, rehashes:    0 | [CUDA]   185013 us, rehashes:    0
+E1-2 t=3 exp=23 [Sequential]  2049982 us, rehashes:    0 | [CUDA]    81891 us, rehashes:    0
+E1-3 t=3 exp=23 [Sequential]  2034605 us, rehashes:    0 | [CUDA]   184675 us, rehashes:    0
+E1-4 t=3 exp=23 [Sequential]  2061384 us, rehashes:    0 | [CUDA]   229964 us, rehashes:    0
+E1-0 t=3 exp=24 [Sequential]  3791966 us, rehashes:    0 | [CUDA]   132325 us, rehashes:    0
+E1-1 t=3 exp=24 [Sequential]  3662802 us, rehashes:    0 | [CUDA]   275362 us, rehashes:    0
+E1-2 t=3 exp=24 [Sequential]  3740996 us, rehashes:    0 | [CUDA]   272171 us, rehashes:    0
+E1-3 t=3 exp=24 [Sequential]  4255991 us, rehashes:    0 | [CUDA]   310300 us, rehashes:    0
+E1-4 t=3 exp=24 [Sequential]  3753592 us, rehashes:    0 | [CUDA]   228479 us, rehashes:    0
+Experiment 2:
+E2-0 t=2 i=0  [Sequential]  1345575 us | [CUDA]    31605 us
+E2-1 t=2 i=0  [Sequential]  1327720 us | [CUDA]    33234 us
+E2-2 t=2 i=0  [Sequential]  1297699 us | [CUDA]    78697 us
+E2-3 t=2 i=0  [Sequential]  1292155 us | [CUDA]    76223 us
+E2-4 t=2 i=0  [Sequential]  1290846 us | [CUDA]    76258 us
+E2-0 t=2 i=1  [Sequential]  1373052 us | [CUDA]   189305 us
+E2-1 t=2 i=1  [Sequential]  1389765 us | [CUDA]    20416 us
+E2-2 t=2 i=1  [Sequential]  1423547 us | [CUDA]    69548 us
+E2-3 t=2 i=1  [Sequential]  1450487 us | [CUDA]    82640 us
+E2-4 t=2 i=1  [Sequential]  1384648 us | [CUDA]    24222 us
+E2-0 t=2 i=2  [Sequential]  1265552 us | [CUDA]   168564 us
+E2-1 t=2 i=2  [Sequential]  1407553 us | [CUDA]   176840 us
+E2-2 t=2 i=2  [Sequential]  1267263 us | [CUDA]    20960 us
+E2-3 t=2 i=2  [Sequential]  1265370 us | [CUDA]    32780 us
+E2-4 t=2 i=2  [Sequential]  1269642 us | [CUDA]    71425 us
+E2-0 t=2 i=3  [Sequential]  1300998 us | [CUDA]   176441 us
+E2-1 t=2 i=3  [Sequential]  1315698 us | [CUDA]   173835 us
+E2-2 t=2 i=3  [Sequential]  1300490 us | [CUDA]    73172 us
+E2-3 t=2 i=3  [Sequential]  1298204 us | [CUDA]   175849 us
+E2-4 t=2 i=3  [Sequential]  1308265 us | [CUDA]    21553 us
+E2-0 t=2 i=4  [Sequential]  1350671 us | [CUDA]    75568 us
+E2-1 t=2 i=4  [Sequential]  1332421 us | [CUDA]    75808 us
+E2-2 t=2 i=4  [Sequential]  1364223 us | [CUDA]   182360 us
+E2-3 t=2 i=4  [Sequential]  1344842 us | [CUDA]   154674 us
+E2-4 t=2 i=4  [Sequential]  1400515 us | [CUDA]    75853 us
+E2-0 t=2 i=5  [Sequential]  1337291 us | [CUDA]   187129 us
+E2-1 t=2 i=5  [Sequential]  1337591 us | [CUDA]    23776 us
+E2-2 t=2 i=5  [Sequential]  1548692 us | [CUDA]    77717 us
+E2-3 t=2 i=5  [Sequential]  1582352 us | [CUDA]   187943 us
+E2-4 t=2 i=5  [Sequential]  1480343 us | [CUDA]   194530 us
+E2-0 t=2 i=6  [Sequential]  1364658 us | [CUDA]    79927 us
+E2-1 t=2 i=6  [Sequential]  1547904 us | [CUDA]   193781 us
+E2-2 t=2 i=6  [Sequential]  1471364 us | [CUDA]    80257 us
+E2-3 t=2 i=6  [Sequential]  1384026 us | [CUDA]    80947 us
+E2-4 t=2 i=6  [Sequential]  1373470 us | [CUDA]    79659 us
+E2-0 t=2 i=7  [Sequential]  1383641 us | [CUDA]   204266 us
+E2-1 t=2 i=7  [Sequential]  1423933 us | [CUDA]    81598 us
+E2-2 t=2 i=7  [Sequential]  1399365 us | [CUDA]    81472 us
+E2-3 t=2 i=7  [Sequential]  1390646 us | [CUDA]   201356 us
+E2-4 t=2 i=7  [Sequential]  1398538 us | [CUDA]    79739 us
+E2-0 t=2 i=8  [Sequential]  1433530 us | [CUDA]    83967 us
+E2-1 t=2 i=8  [Sequential]  1405054 us | [CUDA]   206186 us
+E2-2 t=2 i=8  [Sequential]  1416683 us | [CUDA]    83293 us
+E2-3 t=2 i=8  [Sequential]  1421642 us | [CUDA]   207627 us
+E2-4 t=2 i=8  [Sequential]  1456747 us | [CUDA]   214437 us
+E2-0 t=2 i=9  [Sequential]  1431075 us | [CUDA]    85634 us
+E2-1 t=2 i=9  [Sequential]  1443303 us | [CUDA]   214877 us
+E2-2 t=2 i=9  [Sequential]  1448869 us | [CUDA]   212137 us
+E2-3 t=2 i=9  [Sequential]  1438113 us | [CUDA]    86062 us
+E2-4 t=2 i=9  [Sequential]  1426978 us | [CUDA]   219563 us
+E2-0 t=2 i=10 [Sequential]  1472066 us | [CUDA]   217580 us
+E2-1 t=2 i=10 [Sequential]  1465111 us | [CUDA]    87476 us
+E2-2 t=2 i=10 [Sequential]  1452293 us | [CUDA]   225995 us
+E2-3 t=2 i=10 [Sequential]  1465044 us | [CUDA]    43418 us
+E2-4 t=2 i=10 [Sequential]  1491744 us | [CUDA]    88407 us
+E2-0 t=3 i=0  [Sequential]  1316747 us | [CUDA]    67681 us
+E2-1 t=3 i=0  [Sequential]  1317320 us | [CUDA]    68305 us
+E2-2 t=3 i=0  [Sequential]  1382894 us | [CUDA]   156717 us
+E2-3 t=3 i=0  [Sequential]  1303902 us | [CUDA]   157664 us
+E2-4 t=3 i=0  [Sequential]  1303189 us | [CUDA]    68673 us
+E2-0 t=3 i=1  [Sequential]  1420747 us | [CUDA]   171830 us
+E2-1 t=3 i=1  [Sequential]  1386332 us | [CUDA]   176770 us
+E2-2 t=3 i=1  [Sequential]  1370617 us | [CUDA]    21996 us
+E2-3 t=3 i=1  [Sequential]  1346374 us | [CUDA]    73325 us
+E2-4 t=3 i=1  [Sequential]  1354615 us | [CUDA]    72170 us
+E2-0 t=3 i=2  [Sequential]  1434169 us | [CUDA]   185005 us
+E2-1 t=3 i=2  [Sequential]  1419243 us | [CUDA]   185242 us
+E2-2 t=3 i=2  [Sequential]  1446561 us | [CUDA]    22118 us
+E2-3 t=3 i=2  [Sequential]  1436930 us | [CUDA]    76863 us
+E2-4 t=3 i=2  [Sequential]  1438325 us | [CUDA]   185580 us
+E2-0 t=3 i=3  [Sequential]  1532167 us | [CUDA]    81664 us
+E2-1 t=3 i=3  [Sequential]  1539359 us | [CUDA]   201528 us
+E2-2 t=3 i=3  [Sequential]  1532395 us | [CUDA]    24463 us
+E2-3 t=3 i=3  [Sequential]  1531374 us | [CUDA]    82383 us
+E2-4 t=3 i=3  [Sequential]  1530131 us | [CUDA]    82097 us
+E2-0 t=3 i=4  [Sequential]  1600821 us | [CUDA]   212991 us
+E2-1 t=3 i=4  [Sequential]  1626245 us | [CUDA]    86244 us
+E2-2 t=3 i=4  [Sequential]  1610024 us | [CUDA]    86329 us
+E2-3 t=3 i=4  [Sequential]  1599118 us | [CUDA]   216185 us
+E2-4 t=3 i=4  [Sequential]  1614291 us | [CUDA]    86510 us
+E2-0 t=3 i=5  [Sequential]  1727691 us | [CUDA]    91793 us
+E2-1 t=3 i=5  [Sequential]  1699628 us | [CUDA]   227460 us
+E2-2 t=3 i=5  [Sequential]  1706895 us | [CUDA]    90168 us
+E2-3 t=3 i=5  [Sequential]  1730332 us | [CUDA]   225961 us
+E2-4 t=3 i=5  [Sequential]  1702357 us | [CUDA]    95243 us
+E2-0 t=3 i=6  [Sequential]  1793447 us | [CUDA]   242222 us
+E2-1 t=3 i=6  [Sequential]  1803739 us | [CUDA]    96345 us
+E2-2 t=3 i=6  [Sequential]  1784300 us | [CUDA]   242175 us
+E2-3 t=3 i=6  [Sequential]  1823034 us | [CUDA]   243060 us
+E2-4 t=3 i=6  [Sequential]  1789634 us | [CUDA]    94946 us
+E2-0 t=3 i=7  [Sequential]  1882897 us | [CUDA]   256619 us
+E2-1 t=3 i=7  [Sequential]  1887080 us | [CUDA]    52034 us
+E2-2 t=3 i=7  [Sequential]  1881562 us | [CUDA]   256525 us
+E2-3 t=3 i=7  [Sequential]  1877871 us | [CUDA]    99265 us
+E2-4 t=3 i=7  [Sequential]  1894612 us | [CUDA]   255766 us
+E2-0 t=3 i=8  [Sequential]  2001908 us | [CUDA]   104967 us
+E2-1 t=3 i=8  [Sequential]  1973393 us | [CUDA]   216013 us
+E2-2 t=3 i=8  [Sequential]  1977761 us | [CUDA]   105397 us
+E2-3 t=3 i=8  [Sequential]  1965676 us | [CUDA]   272835 us
+E2-4 t=3 i=8  [Sequential]  1972526 us | [CUDA]   189340 us
+E2-0 t=3 i=9  [Sequential]  2058098 us | [CUDA]   265232 us
+E2-1 t=3 i=9  [Sequential]  2086036 us | [CUDA]    56764 us
+E2-2 t=3 i=9  [Sequential]  2063951 us | [CUDA]   234116 us
+E2-3 t=3 i=9  [Sequential]  2095683 us | [CUDA]   122453 us
+E2-4 t=3 i=9  [Sequential]  2142483 us | [CUDA]   241064 us
+E2-0 t=3 i=10 [Sequential]  2361067 us | [CUDA]   127621 us
+E2-1 t=3 i=10 [Sequential]  2260646 us | [CUDA]   192679 us
+E2-2 t=3 i=10 [Sequential]  2262644 us | [CUDA]   224735 us
+E2-3 t=3 i=10 [Sequential]  2180947 us | [CUDA]   114965 us
+E2-4 t=3 i=10 [Sequential]  2305262 us | [CUDA]   117188 us
+Experiment3:
+E3-0 t=2 size=1.10n [Sequential]  7429636 us, rehashes:    1 | [CUDA]   287416 us, rehashes:    0
+E3-1 t=2 size=1.10n [Sequential] 26849711 us, rehashes:    6 | [CUDA]   289125 us, rehashes:    0
+E3-2 t=2 size=1.10n [Sequential]  7087825 us, rehashes:    1 | [CUDA]   288790 us, rehashes:    0
+E3-3 t=2 size=1.10n [Sequential]  3385917 us, rehashes:    0 | [CUDA]   125121 us, rehashes:    0
+E3-4 t=2 size=1.10n [Sequential]  3367647 us, rehashes:    0 | [CUDA]   286885 us, rehashes:    0
+E3-0 t=2 size=1.20n [Sequential]  3205835 us, rehashes:    0 | [CUDA]    52570 us, rehashes:    0
+E3-1 t=2 size=1.20n [Sequential]  3204890 us, rehashes:    0 | [CUDA]   223660 us, rehashes:    0
+E3-2 t=2 size=1.20n [Sequential]  3170915 us, rehashes:    0 | [CUDA]   197609 us, rehashes:    0
+E3-3 t=2 size=1.20n [Sequential]  3180370 us, rehashes:    0 | [CUDA]   276728 us, rehashes:    0
+E3-4 t=2 size=1.20n [Sequential]  3188871 us, rehashes:    0 | [CUDA]    53977 us, rehashes:    0
+E3-0 t=2 size=1.30n [Sequential]  3103114 us, rehashes:    0 | [CUDA]   272411 us, rehashes:    0
+E3-1 t=2 size=1.30n [Sequential]  3112583 us, rehashes:    0 | [CUDA]   122883 us, rehashes:    0
+E3-2 t=2 size=1.30n [Sequential]  3097372 us, rehashes:    0 | [CUDA]   264246 us, rehashes:    0
+E3-3 t=2 size=1.30n [Sequential]  3080151 us, rehashes:    0 | [CUDA]   115733 us, rehashes:    0
+E3-4 t=2 size=1.30n [Sequential]  3142298 us, rehashes:    0 | [CUDA]   249530 us, rehashes:    0
+E3-0 t=2 size=1.40n [Sequential]  3032633 us, rehashes:    0 | [CUDA]    49803 us, rehashes:    0
+E3-1 t=2 size=1.40n [Sequential]  3026265 us, rehashes:    0 | [CUDA]   275338 us, rehashes:    0
+E3-2 t=2 size=1.40n [Sequential]  3064478 us, rehashes:    0 | [CUDA]    50438 us, rehashes:    0
+E3-3 t=2 size=1.40n [Sequential]  3019778 us, rehashes:    0 | [CUDA]   282808 us, rehashes:    0
+E3-4 t=2 size=1.40n [Sequential]  3037873 us, rehashes:    0 | [CUDA]    51416 us, rehashes:    0
+E3-0 t=2 size=1.50n [Sequential]  3012925 us, rehashes:    0 | [CUDA]   271975 us, rehashes:    0
+E3-1 t=2 size=1.50n [Sequential]  2994473 us, rehashes:    0 | [CUDA]    51556 us, rehashes:    0
+E3-2 t=2 size=1.50n [Sequential]  3091045 us, rehashes:    0 | [CUDA]   268541 us, rehashes:    0
+E3-3 t=2 size=1.50n [Sequential]  3006006 us, rehashes:    0 | [CUDA]    50724 us, rehashes:    0
+E3-4 t=2 size=1.50n [Sequential]  2984522 us, rehashes:    0 | [CUDA]   274801 us, rehashes:    0
+E3-0 t=2 size=1.60n [Sequential]  3003584 us, rehashes:    0 | [CUDA]    51161 us, rehashes:    0
+E3-1 t=2 size=1.60n [Sequential]  2975664 us, rehashes:    0 | [CUDA]   204698 us, rehashes:    0
+E3-2 t=2 size=1.60n [Sequential]  2965352 us, rehashes:    0 | [CUDA]   117230 us, rehashes:    0
+E3-3 t=2 size=1.60n [Sequential]  2986220 us, rehashes:    0 | [CUDA]   277128 us, rehashes:    0
+E3-4 t=2 size=1.60n [Sequential]  2997034 us, rehashes:    0 | [CUDA]   190265 us, rehashes:    0
+E3-0 t=2 size=1.70n [Sequential]  2943039 us, rehashes:    0 | [CUDA]    29775 us, rehashes:    0
+E3-1 t=2 size=1.70n [Sequential]  2976551 us, rehashes:    0 | [CUDA]   162156 us, rehashes:    0
+E3-2 t=2 size=1.70n [Sequential]  2946405 us, rehashes:    0 | [CUDA]   270251 us, rehashes:    0
+E3-3 t=2 size=1.70n [Sequential]  3023708 us, rehashes:    0 | [CUDA]   118865 us, rehashes:    0
+E3-4 t=2 size=1.70n [Sequential]  2993835 us, rehashes:    0 | [CUDA]   224083 us, rehashes:    0
+E3-0 t=2 size=1.80n [Sequential]  2971159 us, rehashes:    0 | [CUDA]   172439 us, rehashes:    0
+E3-1 t=2 size=1.80n [Sequential]  2922980 us, rehashes:    0 | [CUDA]   273685 us, rehashes:    0
+E3-2 t=2 size=1.80n [Sequential]  2896716 us, rehashes:    0 | [CUDA]   117790 us, rehashes:    0
+E3-3 t=2 size=1.80n [Sequential]  2892860 us, rehashes:    0 | [CUDA]   247281 us, rehashes:    0
+E3-4 t=2 size=1.80n [Sequential]  2919213 us, rehashes:    0 | [CUDA]    51713 us, rehashes:    0
+E3-0 t=2 size=1.90n [Sequential]  2912050 us, rehashes:    0 | [CUDA]   249050 us, rehashes:    0
+E3-1 t=2 size=1.90n [Sequential]  2899520 us, rehashes:    0 | [CUDA]   118671 us, rehashes:    0
+E3-2 t=2 size=1.90n [Sequential]  2942710 us, rehashes:    0 | [CUDA]   278007 us, rehashes:    0
+E3-3 t=2 size=1.90n [Sequential]  2905290 us, rehashes:    0 | [CUDA]   266032 us, rehashes:    0
+E3-4 t=2 size=1.90n [Sequential]  2907452 us, rehashes:    0 | [CUDA]    51119 us, rehashes:    0
+E3-0 t=2 size=2.00n [Sequential]  2902244 us, rehashes:    0 | [CUDA]   258203 us, rehashes:    0
+E3-1 t=2 size=2.00n [Sequential]  2887734 us, rehashes:    0 | [CUDA]   118943 us, rehashes:    0
+E3-2 t=2 size=2.00n [Sequential]  2910976 us, rehashes:    0 | [CUDA]   232756 us, rehashes:    0
+E3-3 t=2 size=2.00n [Sequential]  2894808 us, rehashes:    0 | [CUDA]   118600 us, rehashes:    0
+E3-4 t=2 size=2.00n [Sequential]  2921331 us, rehashes:    0 | [CUDA]   277419 us, rehashes:    0
+[Sequential] Exceeded maximum rehash depth. Abort.
+[CUDA] Exceeded maximum rehash depth. Abort.
+E3-0 t=2 size=1.01n [Sequential] 24612364 us, rehashes:    6 | [CUDA]  2251535 us, rehashes:    5
+[Sequential] Exceeded maximum rehash depth. Abort.
+[CUDA] Exceeded maximum rehash depth. Abort.
+E3-1 t=2 size=1.01n [Sequential] 24153050 us, rehashes:    6 | [CUDA]  2321876 us, rehashes:    5
+[Sequential] Exceeded maximum rehash depth. Abort.
+[CUDA] Exceeded maximum rehash depth. Abort.
+E3-2 t=2 size=1.01n [Sequential] 24203439 us, rehashes:    6 | [CUDA]  2350171 us, rehashes:    5
+[Sequential] Exceeded maximum rehash depth. Abort.
+[CUDA] Exceeded maximum rehash depth. Abort.
+E3-3 t=2 size=1.01n [Sequential] 24628853 us, rehashes:    6 | [CUDA]  2307160 us, rehashes:    5
+[Sequential] Exceeded maximum rehash depth. Abort.
+[CUDA] Exceeded maximum rehash depth. Abort.
+E3-4 t=2 size=1.01n [Sequential] 24388712 us, rehashes:    6 | [CUDA]  2304419 us, rehashes:    5
+[Sequential] Exceeded maximum rehash depth. Abort.
+[CUDA] Exceeded maximum rehash depth. Abort.
+E3-0 t=2 size=1.02n [Sequential] 24443343 us, rehashes:    6 | [CUDA]  2294763 us, rehashes:    5
+[Sequential] Exceeded maximum rehash depth. Abort.
+[CUDA] Exceeded maximum rehash depth. Abort.
+E3-1 t=2 size=1.02n [Sequential] 24579589 us, rehashes:    6 | [CUDA]  2364319 us, rehashes:    5
+[Sequential] Exceeded maximum rehash depth. Abort.
+[CUDA] Exceeded maximum rehash depth. Abort.
+E3-2 t=2 size=1.02n [Sequential] 24505268 us, rehashes:    6 | [CUDA]  2370105 us, rehashes:    5
+[Sequential] Exceeded maximum rehash depth. Abort.
+[CUDA] Exceeded maximum rehash depth. Abort.
+E3-3 t=2 size=1.02n [Sequential] 24127650 us, rehashes:    6 | [CUDA]  2363063 us, rehashes:    5
+[Sequential] Exceeded maximum rehash depth. Abort.
+[CUDA] Exceeded maximum rehash depth. Abort.
+E3-4 t=2 size=1.02n [Sequential] 24631075 us, rehashes:    6 | [CUDA]  2315979 us, rehashes:    5
+[Sequential] Exceeded maximum rehash depth. Abort.
+E3-0 t=2 size=1.05n [Sequential] 25554982 us, rehashes:    6 | [CUDA]   310334 us, rehashes:    0
+[Sequential] Exceeded maximum rehash depth. Abort.
+E3-1 t=2 size=1.05n [Sequential] 25229092 us, rehashes:    6 | [CUDA]   309448 us, rehashes:    0
+[Sequential] Exceeded maximum rehash depth. Abort.
+E3-2 t=2 size=1.05n [Sequential] 25421216 us, rehashes:    6 | [CUDA]   316715 us, rehashes:    0
+[Sequential] Exceeded maximum rehash depth. Abort.
+E3-3 t=2 size=1.05n [Sequential] 24994893 us, rehashes:    6 | [CUDA]   302435 us, rehashes:    0
+[Sequential] Exceeded maximum rehash depth. Abort.
+E3-4 t=2 size=1.05n [Sequential] 24804723 us, rehashes:    6 | [CUDA]   309020 us, rehashes:    0
+E3-0 t=3 size=1.10n [Sequential]  3682090 us, rehashes:    0 | [CUDA]   253054 us, rehashes:    0
+E3-1 t=3 size=1.10n [Sequential]  3696330 us, rehashes:    0 | [CUDA]   212971 us, rehashes:    0
+E3-2 t=3 size=1.10n [Sequential]  3691209 us, rehashes:    0 | [CUDA]   120525 us, rehashes:    0
+E3-3 t=3 size=1.10n [Sequential]  3736201 us, rehashes:    0 | [CUDA]   270635 us, rehashes:    0
+E3-4 t=3 size=1.10n [Sequential]  3731182 us, rehashes:    0 | [CUDA]   284492 us, rehashes:    0
+E3-0 t=3 size=1.20n [Sequential]  3836204 us, rehashes:    0 | [CUDA]   121222 us, rehashes:    0
+E3-1 t=3 size=1.20n [Sequential]  3775486 us, rehashes:    0 | [CUDA]   321369 us, rehashes:    0
+E3-2 t=3 size=1.20n [Sequential]  3841560 us, rehashes:    0 | [CUDA]    59161 us, rehashes:    0
+E3-3 t=3 size=1.20n [Sequential]  3855410 us, rehashes:    0 | [CUDA]   278257 us, rehashes:    0
+E3-4 t=3 size=1.20n [Sequential]  3905930 us, rehashes:    0 | [CUDA]   228142 us, rehashes:    0
+E3-0 t=3 size=1.30n [Sequential]  3729992 us, rehashes:    0 | [CUDA]   280955 us, rehashes:    0
+E3-1 t=3 size=1.30n [Sequential]  3763922 us, rehashes:    0 | [CUDA]   234876 us, rehashes:    0
+E3-2 t=3 size=1.30n [Sequential]  3776517 us, rehashes:    0 | [CUDA]   251621 us, rehashes:    0
+E3-3 t=3 size=1.30n [Sequential]  3844283 us, rehashes:    0 | [CUDA]   248663 us, rehashes:    0
+E3-4 t=3 size=1.30n [Sequential]  3821600 us, rehashes:    0 | [CUDA]   270289 us, rehashes:    0
+E3-0 t=3 size=1.40n [Sequential]  3739698 us, rehashes:    0 | [CUDA]   191481 us, rehashes:    0
+E3-1 t=3 size=1.40n [Sequential]  3816987 us, rehashes:    0 | [CUDA]   123328 us, rehashes:    0
+E3-2 t=3 size=1.40n [Sequential]  3771529 us, rehashes:    0 | [CUDA]   125004 us, rehashes:    0
+E3-3 t=3 size=1.40n [Sequential]  3737154 us, rehashes:    0 | [CUDA]   249360 us, rehashes:    0
+E3-4 t=3 size=1.40n [Sequential]  3685653 us, rehashes:    0 | [CUDA]   208832 us, rehashes:    0
+E3-0 t=3 size=1.50n [Sequential]  3643128 us, rehashes:    0 | [CUDA]   123158 us, rehashes:    0
+E3-1 t=3 size=1.50n [Sequential]  3656955 us, rehashes:    0 | [CUDA]   286108 us, rehashes:    0
+E3-2 t=3 size=1.50n [Sequential]  3627876 us, rehashes:    0 | [CUDA]   123800 us, rehashes:    0
+E3-3 t=3 size=1.50n [Sequential]  3651102 us, rehashes:    0 | [CUDA]   286287 us, rehashes:    0
+E3-4 t=3 size=1.50n [Sequential]  3629773 us, rehashes:    0 | [CUDA]   124374 us, rehashes:    0
+E3-0 t=3 size=1.60n [Sequential]  3632071 us, rehashes:    0 | [CUDA]   243048 us, rehashes:    0
+E3-1 t=3 size=1.60n [Sequential]  3629122 us, rehashes:    0 | [CUDA]   261046 us, rehashes:    0
+E3-2 t=3 size=1.60n [Sequential]  3638102 us, rehashes:    0 | [CUDA]   215683 us, rehashes:    0
+E3-3 t=3 size=1.60n [Sequential]  3626146 us, rehashes:    0 | [CUDA]   125920 us, rehashes:    0
+E3-4 t=3 size=1.60n [Sequential]  3618254 us, rehashes:    0 | [CUDA]   289134 us, rehashes:    0
+E3-0 t=3 size=1.70n [Sequential]  3617401 us, rehashes:    0 | [CUDA]   126119 us, rehashes:    0
+E3-1 t=3 size=1.70n [Sequential]  3636336 us, rehashes:    0 | [CUDA]   226748 us, rehashes:    0
+E3-2 t=3 size=1.70n [Sequential]  3614768 us, rehashes:    0 | [CUDA]   248588 us, rehashes:    0
+E3-3 t=3 size=1.70n [Sequential]  3640058 us, rehashes:    0 | [CUDA]    56879 us, rehashes:    0
+E3-4 t=3 size=1.70n [Sequential]  3635163 us, rehashes:    0 | [CUDA]   294011 us, rehashes:    0
+E3-0 t=3 size=1.80n [Sequential]  3651078 us, rehashes:    0 | [CUDA]   127657 us, rehashes:    0
+E3-1 t=3 size=1.80n [Sequential]  3623116 us, rehashes:    0 | [CUDA]   209224 us, rehashes:    0
+E3-2 t=3 size=1.80n [Sequential]  3639345 us, rehashes:    0 | [CUDA]   197696 us, rehashes:    0
+E3-3 t=3 size=1.80n [Sequential]  3628413 us, rehashes:    0 | [CUDA]   127828 us, rehashes:    0
+E3-4 t=3 size=1.80n [Sequential]  3648302 us, rehashes:    0 | [CUDA]   293952 us, rehashes:    0
+E3-0 t=3 size=1.90n [Sequential]  3646689 us, rehashes:    0 | [CUDA]   237977 us, rehashes:    0
+E3-1 t=3 size=1.90n [Sequential]  3636178 us, rehashes:    0 | [CUDA]   131148 us, rehashes:    0
+E3-2 t=3 size=1.90n [Sequential]  3654396 us, rehashes:    0 | [CUDA]   256004 us, rehashes:    0
+E3-3 t=3 size=1.90n [Sequential]  3647103 us, rehashes:    0 | [CUDA]   210295 us, rehashes:    0
+E3-4 t=3 size=1.90n [Sequential]  3633968 us, rehashes:    0 | [CUDA]   129349 us, rehashes:    0
+E3-0 t=3 size=2.00n [Sequential]  3681488 us, rehashes:    0 | [CUDA]   234248 us, rehashes:    0
+E3-1 t=3 size=2.00n [Sequential]  3659791 us, rehashes:    0 | [CUDA]   222617 us, rehashes:    0
+E3-2 t=3 size=2.00n [Sequential]  3768336 us, rehashes:    0 | [CUDA]   239150 us, rehashes:    0
+E3-3 t=3 size=2.00n [Sequential]  3825856 us, rehashes:    0 | [CUDA]   134175 us, rehashes:    0
+E3-4 t=3 size=2.00n [Sequential]  3728817 us, rehashes:    0 | [CUDA]   196025 us, rehashes:    0
+E3-0 t=3 size=1.01n [Sequential]  3890559 us, rehashes:    0 | [CUDA]   220615 us, rehashes:    0
+E3-1 t=3 size=1.01n [Sequential]  3790363 us, rehashes:    0 | [CUDA]   278622 us, rehashes:    0
+E3-2 t=3 size=1.01n [Sequential]  3713242 us, rehashes:    0 | [CUDA]   265695 us, rehashes:    0
+E3-3 t=3 size=1.01n [Sequential]  3704539 us, rehashes:    0 | [CUDA]   232322 us, rehashes:    0
+E3-4 t=3 size=1.01n [Sequential]  3708527 us, rehashes:    0 | [CUDA]   278522 us, rehashes:    0
+E3-0 t=3 size=1.02n [Sequential]  3714314 us, rehashes:    0 | [CUDA]   121631 us, rehashes:    0
+E3-1 t=3 size=1.02n [Sequential]  3699625 us, rehashes:    0 | [CUDA]   278384 us, rehashes:    0
+E3-2 t=3 size=1.02n [Sequential]  3705614 us, rehashes:    0 | [CUDA]   120890 us, rehashes:    0
+E3-3 t=3 size=1.02n [Sequential]  3702509 us, rehashes:    0 | [CUDA]   200641 us, rehashes:    0
+E3-4 t=3 size=1.02n [Sequential]  3690929 us, rehashes:    0 | [CUDA]   235487 us, rehashes:    0
+E3-0 t=3 size=1.05n [Sequential]  3714193 us, rehashes:    0 | [CUDA]   121431 us, rehashes:    0
+E3-1 t=3 size=1.05n [Sequential]  3678737 us, rehashes:    0 | [CUDA]   278283 us, rehashes:    0
+E3-2 t=3 size=1.05n [Sequential]  3699398 us, rehashes:    0 | [CUDA]   253379 us, rehashes:    0
+E3-3 t=3 size=1.05n [Sequential]  3703185 us, rehashes:    0 | [CUDA]   121194 us, rehashes:    0
+E3-4 t=3 size=1.05n [Sequential]  3692247 us, rehashes:    0 | [CUDA]   278908 us, rehashes:    0
+Experiment4:
+E4-0 t=2 maxIter=2 logn [Sequential]  2989815 us, rehashes:    0 | [CUDA]   117102 us, rehashes:    0
+E4-1 t=2 maxIter=2 logn [Sequential]  2993819 us, rehashes:    0 | [CUDA]   273021 us, rehashes:    0
+E4-2 t=2 maxIter=2 logn [Sequential]  3222365 us, rehashes:    0 | [CUDA]   117655 us, rehashes:    0
+E4-3 t=2 maxIter=2 logn [Sequential]  3469403 us, rehashes:    0 | [CUDA]   212132 us, rehashes:    0
+E4-4 t=2 maxIter=2 logn [Sequential]  3254273 us, rehashes:    0 | [CUDA]   235816 us, rehashes:    0
+E4-0 t=2 maxIter=3 logn [Sequential]  3032351 us, rehashes:    0 | [CUDA]   243372 us, rehashes:    0
+E4-1 t=2 maxIter=3 logn [Sequential]  2960722 us, rehashes:    0 | [CUDA]    50711 us, rehashes:    0
+E4-2 t=2 maxIter=3 logn [Sequential]  2970374 us, rehashes:    0 | [CUDA]   209965 us, rehashes:    0
+E4-3 t=2 maxIter=3 logn [Sequential]  2958826 us, rehashes:    0 | [CUDA]   116130 us, rehashes:    0
+E4-4 t=2 maxIter=3 logn [Sequential]  2977235 us, rehashes:    0 | [CUDA]   272752 us, rehashes:    0
+E4-0 t=2 maxIter=4 logn [Sequential]  2987914 us, rehashes:    0 | [CUDA]   215137 us, rehashes:    0
+E4-1 t=2 maxIter=4 logn [Sequential]  2963089 us, rehashes:    0 | [CUDA]   272014 us, rehashes:    0
+E4-2 t=2 maxIter=4 logn [Sequential]  2980338 us, rehashes:    0 | [CUDA]   272562 us, rehashes:    0
+E4-3 t=2 maxIter=4 logn [Sequential]  2967564 us, rehashes:    0 | [CUDA]   117993 us, rehashes:    0
+E4-4 t=2 maxIter=4 logn [Sequential]  2987841 us, rehashes:    0 | [CUDA]   273491 us, rehashes:    0
+E4-0 t=2 maxIter=5 logn [Sequential]  2983067 us, rehashes:    0 | [CUDA]   118032 us, rehashes:    0
+E4-1 t=2 maxIter=5 logn [Sequential]  2995304 us, rehashes:    0 | [CUDA]   227880 us, rehashes:    0
+E4-2 t=2 maxIter=5 logn [Sequential]  3283806 us, rehashes:    0 | [CUDA]   119566 us, rehashes:    0
+E4-3 t=2 maxIter=5 logn [Sequential]  2961943 us, rehashes:    0 | [CUDA]   233312 us, rehashes:    0
+E4-4 t=2 maxIter=5 logn [Sequential]  2993107 us, rehashes:    0 | [CUDA]   215231 us, rehashes:    0
+E4-0 t=2 maxIter=6 logn [Sequential]  2982897 us, rehashes:    0 | [CUDA]    50680 us, rehashes:    0
+E4-1 t=2 maxIter=6 logn [Sequential]  2955198 us, rehashes:    0 | [CUDA]   271232 us, rehashes:    0
+E4-2 t=2 maxIter=6 logn [Sequential]  2979826 us, rehashes:    0 | [CUDA]   273303 us, rehashes:    0
+E4-3 t=2 maxIter=6 logn [Sequential]  2971203 us, rehashes:    0 | [CUDA]   117748 us, rehashes:    0
+E4-4 t=2 maxIter=6 logn [Sequential]  2976343 us, rehashes:    0 | [CUDA]   272675 us, rehashes:    0
+E4-0 t=2 maxIter=7 logn [Sequential]  2971634 us, rehashes:    0 | [CUDA]   247992 us, rehashes:    0
+E4-1 t=2 maxIter=7 logn [Sequential]  2966569 us, rehashes:    0 | [CUDA]   118346 us, rehashes:    0
+E4-2 t=2 maxIter=7 logn [Sequential]  2965804 us, rehashes:    0 | [CUDA]   272900 us, rehashes:    0
+E4-3 t=2 maxIter=7 logn [Sequential]  2955591 us, rehashes:    0 | [CUDA]   218079 us, rehashes:    0
+E4-4 t=2 maxIter=7 logn [Sequential]  2989018 us, rehashes:    0 | [CUDA]    51541 us, rehashes:    0
+E4-0 t=2 maxIter=8 logn [Sequential]  2954357 us, rehashes:    0 | [CUDA]   200342 us, rehashes:    0
+E4-1 t=2 maxIter=8 logn [Sequential]  3010056 us, rehashes:    0 | [CUDA]   117725 us, rehashes:    0
+E4-2 t=2 maxIter=8 logn [Sequential]  2968156 us, rehashes:    0 | [CUDA]   272412 us, rehashes:    0
+E4-3 t=2 maxIter=8 logn [Sequential]  2981607 us, rehashes:    0 | [CUDA]   272742 us, rehashes:    0
+E4-4 t=2 maxIter=8 logn [Sequential]  2995949 us, rehashes:    0 | [CUDA]   124768 us, rehashes:    0
+E4-0 t=2 maxIter=9 logn [Sequential]  3046290 us, rehashes:    0 | [CUDA]   273063 us, rehashes:    0
+E4-1 t=2 maxIter=9 logn [Sequential]  3092973 us, rehashes:    0 | [CUDA]   121116 us, rehashes:    0
+E4-2 t=2 maxIter=9 logn [Sequential]  3102474 us, rehashes:    0 | [CUDA]   166784 us, rehashes:    0
+E4-3 t=2 maxIter=9 logn [Sequential]  3116050 us, rehashes:    0 | [CUDA]   318770 us, rehashes:    0
+E4-4 t=2 maxIter=9 logn [Sequential]  3176136 us, rehashes:    0 | [CUDA]   130452 us, rehashes:    0
+E4-0 t=2 maxIter=10 logn [Sequential]  3108317 us, rehashes:    0 | [CUDA]   288964 us, rehashes:    0
+E4-1 t=2 maxIter=10 logn [Sequential]  3160009 us, rehashes:    0 | [CUDA]   117745 us, rehashes:    0
+E4-2 t=2 maxIter=10 logn [Sequential]  3124277 us, rehashes:    0 | [CUDA]   290197 us, rehashes:    0
+E4-3 t=2 maxIter=10 logn [Sequential]  3168319 us, rehashes:    0 | [CUDA]   120581 us, rehashes:    0
+E4-4 t=2 maxIter=10 logn [Sequential]  3069995 us, rehashes:    0 | [CUDA]   261336 us, rehashes:    0
+Best alpha for Sequential: 8
+Best alpha for CUDA: 6
+E4-0 t=3 maxIter=2 logn [Sequential]  3717449 us, rehashes:    0 | [CUDA]   293775 us, rehashes:    0
+E4-1 t=3 maxIter=2 logn [Sequential]  3733100 us, rehashes:    0 | [CUDA]   220005 us, rehashes:    0
+E4-2 t=3 maxIter=2 logn [Sequential]  3761529 us, rehashes:    0 | [CUDA]   278965 us, rehashes:    0
+E4-3 t=3 maxIter=2 logn [Sequential]  3727529 us, rehashes:    0 | [CUDA]   208837 us, rehashes:    0
+E4-4 t=3 maxIter=2 logn [Sequential]  3622412 us, rehashes:    0 | [CUDA]   123265 us, rehashes:    0
+E4-0 t=3 maxIter=3 logn [Sequential]  3629180 us, rehashes:    0 | [CUDA]   285292 us, rehashes:    0
+E4-1 t=3 maxIter=3 logn [Sequential]  3606649 us, rehashes:    0 | [CUDA]   125171 us, rehashes:    0
+E4-2 t=3 maxIter=3 logn [Sequential]  3595147 us, rehashes:    0 | [CUDA]   283021 us, rehashes:    0
+E4-3 t=3 maxIter=3 logn [Sequential]  3617914 us, rehashes:    0 | [CUDA]   229166 us, rehashes:    0
+E4-4 t=3 maxIter=3 logn [Sequential]  3629766 us, rehashes:    0 | [CUDA]   123563 us, rehashes:    0
+E4-0 t=3 maxIter=4 logn [Sequential]  3616463 us, rehashes:    0 | [CUDA]   267280 us, rehashes:    0
+E4-1 t=3 maxIter=4 logn [Sequential]  3596364 us, rehashes:    0 | [CUDA]    54811 us, rehashes:    0
+E4-2 t=3 maxIter=4 logn [Sequential]  3616739 us, rehashes:    0 | [CUDA]   285898 us, rehashes:    0
+E4-3 t=3 maxIter=4 logn [Sequential]  3639821 us, rehashes:    0 | [CUDA]   125841 us, rehashes:    0
+E4-4 t=3 maxIter=4 logn [Sequential]  3609715 us, rehashes:    0 | [CUDA]   236512 us, rehashes:    0
+E4-0 t=3 maxIter=5 logn [Sequential]  3606868 us, rehashes:    0 | [CUDA]   123665 us, rehashes:    0
+E4-1 t=3 maxIter=5 logn [Sequential]  3613057 us, rehashes:    0 | [CUDA]   234844 us, rehashes:    0
+E4-2 t=3 maxIter=5 logn [Sequential]  3657154 us, rehashes:    0 | [CUDA]   123488 us, rehashes:    0
+E4-3 t=3 maxIter=5 logn [Sequential]  3640621 us, rehashes:    0 | [CUDA]   283542 us, rehashes:    0
+E4-4 t=3 maxIter=5 logn [Sequential]  3632893 us, rehashes:    0 | [CUDA]   122339 us, rehashes:    0
+E4-0 t=3 maxIter=6 logn [Sequential]  3596739 us, rehashes:    0 | [CUDA]   241790 us, rehashes:    0
+E4-1 t=3 maxIter=6 logn [Sequential]  3626185 us, rehashes:    0 | [CUDA]   223276 us, rehashes:    0
+E4-2 t=3 maxIter=6 logn [Sequential]  3609502 us, rehashes:    0 | [CUDA]   122397 us, rehashes:    0
+E4-3 t=3 maxIter=6 logn [Sequential]  3634253 us, rehashes:    0 | [CUDA]   257057 us, rehashes:    0
+E4-4 t=3 maxIter=6 logn [Sequential]  3636128 us, rehashes:    0 | [CUDA]    53712 us, rehashes:    0
+E4-0 t=3 maxIter=7 logn [Sequential]  3594131 us, rehashes:    0 | [CUDA]   284435 us, rehashes:    0
+E4-1 t=3 maxIter=7 logn [Sequential]  3598116 us, rehashes:    0 | [CUDA]   123434 us, rehashes:    0
+E4-2 t=3 maxIter=7 logn [Sequential]  3608661 us, rehashes:    0 | [CUDA]   268698 us, rehashes:    0
+E4-3 t=3 maxIter=7 logn [Sequential]  3615624 us, rehashes:    0 | [CUDA]    56486 us, rehashes:    0
+E4-4 t=3 maxIter=7 logn [Sequential]  3614046 us, rehashes:    0 | [CUDA]   286002 us, rehashes:    0
+E4-0 t=3 maxIter=8 logn [Sequential]  3641706 us, rehashes:    0 | [CUDA]    54965 us, rehashes:    0
+E4-1 t=3 maxIter=8 logn [Sequential]  3596151 us, rehashes:    0 | [CUDA]   283737 us, rehashes:    0
+E4-2 t=3 maxIter=8 logn [Sequential]  3600817 us, rehashes:    0 | [CUDA]    54375 us, rehashes:    0
+E4-3 t=3 maxIter=8 logn [Sequential]  3604701 us, rehashes:    0 | [CUDA]   283531 us, rehashes:    0
+E4-4 t=3 maxIter=8 logn [Sequential]  3595940 us, rehashes:    0 | [CUDA]   122887 us, rehashes:    0
+E4-0 t=3 maxIter=9 logn [Sequential]  3601746 us, rehashes:    0 | [CUDA]   270640 us, rehashes:    0
+E4-1 t=3 maxIter=9 logn [Sequential]  3642803 us, rehashes:    0 | [CUDA]    55645 us, rehashes:    0
+E4-2 t=3 maxIter=9 logn [Sequential]  3620832 us, rehashes:    0 | [CUDA]   267134 us, rehashes:    0
+E4-3 t=3 maxIter=9 logn [Sequential]  3610827 us, rehashes:    0 | [CUDA]    54199 us, rehashes:    0
+E4-4 t=3 maxIter=9 logn [Sequential]  3624727 us, rehashes:    0 | [CUDA]   269588 us, rehashes:    0
+E4-0 t=3 maxIter=10 logn [Sequential]  3623508 us, rehashes:    0 | [CUDA]    54117 us, rehashes:    0
+E4-1 t=3 maxIter=10 logn [Sequential]  3625907 us, rehashes:    0 | [CUDA]   267299 us, rehashes:    0
+E4-2 t=3 maxIter=10 logn [Sequential]  3639383 us, rehashes:    0 | [CUDA]    55094 us, rehashes:    0
+E4-3 t=3 maxIter=10 logn [Sequential]  3642140 us, rehashes:    0 | [CUDA]   237355 us, rehashes:    0
+E4-4 t=3 maxIter=10 logn [Sequential]  3601884 us, rehashes:    0 | [CUDA]    53654 us, rehashes:    0
+Best alpha for Sequential: 7
+Best alpha for CUDA: 10
