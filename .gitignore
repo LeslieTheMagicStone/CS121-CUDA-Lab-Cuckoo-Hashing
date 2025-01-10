@@ -1,0 +1,10 @@
+.DS_Store
+slides
+.vscode
+
+main.aux
+main.log
+main.out
+main.synctex.gz
+main.fdb_latexmk
+main.fls
