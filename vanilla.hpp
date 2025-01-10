@@ -30,11 +30,14 @@ private:
         return 0;
     }
 
-    void place(int key, int tableID, int cnt)
+    void place(int key, int tableID, int cnt, int &rehashes)
     {
         // Cycle present, rehash.
         if (cnt == maxIter)
+        {
+            rehashes++;
             return;
+        }
 
         for (int i = 0; i < t; i++)
         {
@@ -47,7 +50,7 @@ private:
         {
             int dis = hashtable[tableID][pos[tableID]];
             hashtable[tableID][pos[tableID]] = key;
-            place(dis, (tableID + 1) % t, cnt + 1);
+            place(dis, (tableID + 1) % t, cnt + 1, rehashes);
         }
         else
         {
@@ -58,11 +61,11 @@ private:
 public:
     SequentialHash(int size, int t, int maxIter) : size(size), t(t), maxIter(maxIter), hashtable(t, std::vector<int>(size)), pos(t) {}
 
-    void insertKeys(int keys[], int n)
+    void insertKeys(int keys[], int n, int &rehashes)
     {
         initTable();
         for (int i = 0, cnt = 0; i < n; i++, cnt = 0)
-            place(keys[i], 0, cnt);
+            place(keys[i], 0, cnt, rehashes);
     }
 
     void printTables()

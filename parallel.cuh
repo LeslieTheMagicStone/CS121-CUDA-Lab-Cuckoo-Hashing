@@ -24,7 +24,7 @@ __global__ void initTable(int *hashtable, int size, int t)
     }
 }
 
-__global__ void place(int *hashtable, int *keys, int n, int size, int t, int maxIter)
+__global__ void place(int *hashtable, int *keys, int n, int size, int t, int maxIter, int *rehashes)
 {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx < n)
@@ -43,7 +43,7 @@ __global__ void place(int *hashtable, int *keys, int n, int size, int t, int max
             cnt++;
         }
 
-        // Cycle present, REHASH.
+        atomicAdd(rehashes, 1);
     }
 }
 
@@ -55,22 +55,24 @@ private:
     int maxIter;
     int *d_hashtable;
     int *d_pos;
-
+    int *d_rehashes;
 
 public:
     ParallelHash(int size, int t, int maxIter) : size(size), t(t), maxIter(maxIter)
     {
         cudaMalloc(&d_hashtable, t * size * sizeof(int));
         cudaMalloc(&d_pos, t * sizeof(int));
+        cudaMalloc(&d_rehashes, sizeof(int));
     }
 
     ~ParallelHash()
     {
         cudaFree(d_hashtable);
         cudaFree(d_pos);
+        cudaFree(d_rehashes);
     }
 
-    void insertKeys(int keys[], int n)
+    void insertKeys(int keys[], int n, int &rehashes)
     {
         int *d_keys;
         cudaMalloc(&d_keys, n * sizeof(int));
@@ -80,9 +82,11 @@ public:
         int numBlocks = (size * t + blockSize - 1) / blockSize;
         initTable<<<numBlocks, blockSize>>>(d_hashtable, size, t);
 
+        cudaMemset(d_rehashes, 0, sizeof(int));
         numBlocks = (n + blockSize - 1) / blockSize;
-        place<<<numBlocks, blockSize>>>(d_hashtable, d_keys, n, size, t, maxIter);
+        place<<<numBlocks, blockSize>>>(d_hashtable, d_keys, n, size, t, maxIter, d_rehashes);
 
+        cudaMemcpy(&rehashes, d_rehashes, sizeof(int), cudaMemcpyDeviceToHost);
         cudaFree(d_keys);
     }
 

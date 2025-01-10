@@ -30,19 +30,21 @@ void experiment1(int t, int maxIter)
         vector<int> keys;
         generateRandomKeys(keys, n);
 
+        int rehashesSeq = 0;
         auto start = high_resolution_clock::now();
         SequentialHash sh(size, t, maxIter);
-        sh.insertKeys(keys.data(), n);
+        sh.insertKeys(keys.data(), n, rehashesSeq);
         auto end = high_resolution_clock::now();
         auto durationSeq = duration_cast<microseconds>(end - start).count();
 
+        int rehashesPar = 0;
         start = high_resolution_clock::now();
         ParallelHash ph(size, t, maxIter);
-        ph.insertKeys(keys.data(), n);
+        ph.insertKeys(keys.data(), n, rehashesPar);
         end = high_resolution_clock::now();
         auto durationPar = duration_cast<microseconds>(end - start).count();
 
-        cout << "Experiment1 t=" << t << " exp=" << exp << " [Sequential] " << durationSeq << " us | [Parallel] " << durationPar << " us" << endl;
+        printf("E1 t=%d exp=%d [Sequential] %8d us, rehashes: %4d | [Parallel] %8d us, rehashes: %4d\n", t, exp, durationSeq, rehashesSeq, durationPar, rehashesPar);
     }
 }
 
@@ -55,8 +57,9 @@ void experiment2(int t, int maxIter)
         vector<int> keys;
         generateRandomKeys(keys, n);
 
+        int rehashesSeq = 0;
         SequentialHash sh(size, t, maxIter);
-        sh.insertKeys(keys.data(), n);
+        sh.insertKeys(keys.data(), n, rehashesSeq);
 
         vector<int> lookupKeys;
         for (int i = 0; i < n; ++i)
@@ -72,15 +75,16 @@ void experiment2(int t, int maxIter)
         auto end = high_resolution_clock::now();
         auto durationSeq = duration_cast<microseconds>(end - start).count();
 
+        int rehashesPar = 0;
         ParallelHash ph(size, t, maxIter);
-        ph.insertKeys(keys.data(), n);
+        ph.insertKeys(keys.data(), n, rehashesPar);
 
         start = high_resolution_clock::now();
         // Perform lookups in ParallelHash
         end = high_resolution_clock::now();
         auto durationPar = duration_cast<microseconds>(end - start).count();
 
-        cout << "Experiment2 t=" << t << " exp=" << exp << " [Sequential] " << durationSeq << " us | [Parallel] " << durationPar << " us" << endl;
+        printf("E2 t=%d exp=%d [Sequential] %8d us, rehashes: %4d | [Parallel] %8d us, rehashes: %4d\n", t, exp, durationSeq, rehashesSeq, durationPar, rehashesPar);
     }
 }
 
@@ -94,19 +98,21 @@ void experiment3(int t, int maxIter)
     {
         int size = n * factor;
 
+        int rehashesSeq = 0;
         auto start = high_resolution_clock::now();
         SequentialHash sh(size, t, maxIter);
-        sh.insertKeys(keys.data(), n);
+        sh.insertKeys(keys.data(), n, rehashesSeq);
         auto end = high_resolution_clock::now();
         auto durationSeq = duration_cast<microseconds>(end - start).count();
 
+        int rehashesPar = 0;
         start = high_resolution_clock::now();
         ParallelHash ph(size, t, maxIter);
-        ph.insertKeys(keys.data(), n);
+        ph.insertKeys(keys.data(), n, rehashesPar);
         end = high_resolution_clock::now();
         auto durationPar = duration_cast<microseconds>(end - start).count();
 
-        cout << "Experiment3 t=" << t << " factor=" << factor << " [Sequential] " << durationSeq << " us | [Parallel] " << durationPar << " us" << endl;
+        printf("E3 t=%d factor=%.2f [Sequential] %8d us, rehashes: %4d | [Parallel] %8d us, rehashes: %4d\n", t, factor, durationSeq, rehashesSeq, durationPar, rehashesPar);
     }
 }
 
@@ -118,19 +124,21 @@ void experiment4(int t, int n)
 
     for (int bound = 1; bound <= 10; ++bound)
     {
+        int rehashesSeq = 0;
         auto start = high_resolution_clock::now();
         SequentialHash sh(size, t, bound);
-        sh.insertKeys(keys.data(), n);
+        sh.insertKeys(keys.data(), n, rehashesSeq);
         auto end = high_resolution_clock::now();
         auto durationSeq = duration_cast<microseconds>(end - start).count();
 
+        int rehashesPar = 0;
         start = high_resolution_clock::now();
         ParallelHash ph(size, t, bound);
-        ph.insertKeys(keys.data(), n);
+        ph.insertKeys(keys.data(), n, rehashesPar);
         end = high_resolution_clock::now();
         auto durationPar = duration_cast<microseconds>(end - start).count();
 
-        cout << "Experiment4 t=" << t << " bound=" << bound << " [Sequential] " << durationSeq << " us | [Parallel] " << durationPar << " us" << endl;
+        printf("E4 t=%d bound=%d [Sequential] %8d us, rehashes: %4d | [Parallel] %8d us, rehashes: %4d\n", t, bound, durationSeq, rehashesSeq, durationPar, rehashesPar);
     }
 }
 
