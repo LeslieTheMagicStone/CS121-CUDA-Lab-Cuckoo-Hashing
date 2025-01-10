@@ -79,7 +79,9 @@ void experiment2(uint32_t t)
         // Fill remaining S[i] with keys randomly chosen in keys[]
         for (uint32_t j = S[i].size(); j < n; ++j)
         {
-            S[i].push_back(keys[j]);
+            // Pick a random index from [0, n-1]
+            uint32_t idx = rand() % n;
+            S[i].push_back(keys[idx]);
         }
         
         auto start = high_resolution_clock::now();
