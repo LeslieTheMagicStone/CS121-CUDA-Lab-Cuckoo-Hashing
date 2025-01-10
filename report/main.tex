@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{algorithmic}
+
+\title{CS121 Parallel Computing CUDA Lab: Cuckoo Hashing}
+\author{Leshi Li 2023533001}
+\date{January 10, 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+In this lab, I implement the parallel version of Cuckoo Hashing algorithm using CUDA and implement the sequential version of it for comparison.
+
+\section{Algorithm}
+
+The parallel Cuckoo Hashing algorithm implemented using CUDA consists of the following components:
+
+\subsection{Hash Functions}
+Since Cuckoo Hashing requires rehashing, I choose three different hash methods which can be seeded with random values to produce different hash function sets.
+\begin{itemize}
+    \item \textbf{Jenkins one-at-a-time hash}: This hash function processes the key byte by byte and combines it with a seed to produce a hash value.
+    \item \textbf{FNV-1a hash}: This hash function uses the FNV-1a algorithm, which is a variant of the Fowler-Noll-Vo hash function, combined with a seed.
+    \item \textbf{MurmurHash3}: This hash function uses the MurmurHash3 algorithm, which is known for its good distribution and performance, combined with a seed.
+\end{itemize}
+
+\subsection{Insertion}
+The insertion process involves placing keys into the hash table using the available hash functions. If a collision occurs (i.e., the position is already occupied), the existing key is evicted and reinserted using the next hash function. This process continues until the key is placed in an empty slot or the maximum number of iterations is reached. If the maximum number of iterations is reached, a rehash is triggered with a new seed.
+
+\subsection{Lookup}
+The lookup process involves checking the positions determined by the hash functions to see if the key is present in any of them. If the key is found, the result is marked as true; otherwise, it is marked as false.
+
+\subsection{Rehashing}
+Rehashing is performed when the insertion process fails to place a key after the maximum number of iterations. A new seed is generated, and all keys are reinserted into the hash table. This process is repeated until all keys are successfully inserted or the maximum rehash depth is reached, in which case the insertion process is considered to have failed.
+
+\subsection{CUDA Kernels}
+Two CUDA kernels are used in the implementation:
+\begin{itemize}
+    \item \textbf{cuckooHashInsert}: This kernel performs the insertion of keys into the hash table in parallel. Each thread handles the insertion of one key. It uses \verb|atomicExch()| to handle the eviction of existing keys.
+    \item \textbf{cuckooHashLookup}: This kernel performs the lookup of keys in the hash table in parallel. Each thread handles the lookup of one key.
+\end{itemize}
+
+\section{Benchmark Configs}
+
+I run the four experiments in the lab handout.
+I run the benchmark on 
+\begin{itemize}
+    \item OS: Ubuntu 22.04.4 LTS
+    \item CPU: 13th Gen Intel(R) Core(TM) i9-13900HX
+    \item GPU: NVIDIA GeForce RTX 4060
+\end{itemize}
+
+
+\end{document}
