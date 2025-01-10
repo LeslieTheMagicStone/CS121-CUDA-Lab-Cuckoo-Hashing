@@ -117,21 +117,57 @@ void experiment3(uint32_t t)
     }
 }
 
+void experiment4(uint32_t t)
+{
+    uint32_t n = pow(2, 24);
+    uint32_t size = n * 14 / 10;
+    vector<uint32_t> keys;
+    generateRandomKeys(keys, n);
+
+    int bestAlpha = 0;
+    long bestTime = LONG_MAX;
+
+    for (int i = 2; i <= 10; i++)
+    {
+        uint32_t maxIter = i * log2(n);
+        SequentialHash sh(size, t, maxIter);
+        uint32_t rehashesSeq = 0;
+        auto start = high_resolution_clock::now();
+        sh.insertKeys(keys.data(), n, rehashesSeq);
+        auto end = high_resolution_clock::now();
+        auto durationSeq = duration_cast<microseconds>(end - start).count();
+
+        if (durationSeq < bestTime)
+        {
+            bestTime = durationSeq;
+            bestAlpha = i;
+        }
+
+        printf("E4 t=%u maxIter=%dlogn [Sequential] %8ld us, rehashes: %4u\n", t, i, durationSeq, rehashesSeq);
+    }
+
+    printf("Best maxIter=%dlogn\n", bestAlpha);
+}
+
 int main()
 {
     simpleDemo();
 
-    // printf ("Experiment 1:\n");
-    // experiment1(2);
-    // experiment1(3);
+    printf ("Experiment 1:\n");
+    experiment1(2);
+    experiment1(3);
 
-    // printf ("Experiment 2:\n");
-    // experiment2(2);
-    // experiment2(3);
+    printf ("Experiment 2:\n");
+    experiment2(2);
+    experiment2(3);
 
     printf("Experiment3:\n");
     experiment3(2);
     experiment3(3);
+
+    printf ("Experiment4:\n");
+    experiment4(2);
+    experiment4(3);
 
     return 0;
 }
