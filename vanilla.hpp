@@ -4,8 +4,13 @@
 #include <cstdlib>
 #include <cstdint>
 
-const int MAX_DEPTH = 5;
-const uint32_t EMPTY = 0;
+#ifndef MAX_DEPTH
+#define MAX_DEPTH 5
+#endif
+
+#ifndef EMPTY
+#define EMPTY 0
+#endif
 
 class SequentialHash
 {

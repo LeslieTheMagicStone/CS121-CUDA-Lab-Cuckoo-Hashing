@@ -23,13 +23,13 @@ void generateRandomKeys(vector<uint32_t> &keys, uint32_t n)
 
 void simpleDemo()
 {
-    uint32_t n = 5;
+    uint32_t n = 8;
     uint32_t t = 2;
     uint32_t size = 10;
     uint32_t maxIter = 4 * log2(n);
-    vector<uint32_t> keys = {1, 2, 3, 4, 5};
+    vector<uint32_t> keys = {1, 2, 3, 4, 5, 6, 7, 8};
 
-    std::cout << "Running simple demo with n=5, t=2, size=10" << std::endl;
+    std::cout << "Running simple demo with n=8, t=2, size=10" << std::endl;
 
     uint32_t rehashesSeq = 0;
     SequentialHash sh(size, t, maxIter);
@@ -37,6 +37,13 @@ void simpleDemo()
 
     std::cout << "Final table:" << std::endl;
     sh.printTables();
+
+    uint32_t rehashesPar = 0;
+    ParallelHash ph(size, t, maxIter);
+    ph.insertKeys(keys.data(), n, rehashesPar);
+
+    std::cout << "Final table:" << std::endl;
+    ph.printTables();
 }
 
 void experiment1(uint32_t t)
@@ -58,7 +65,14 @@ void experiment1(uint32_t t)
             auto end = high_resolution_clock::now();
             auto durationSeq = duration_cast<microseconds>(end - start).count();
 
-            printf("E1-%d t=%u exp=%u [Sequential] %8ld us, rehashes: %4u \n", iter, t, exp, durationSeq, rehashesSeq);
+            uint32_t rehashesPar = 0;
+            ParallelHash ph(size, t, maxIter);
+            start = high_resolution_clock::now();
+            ph.insertKeys(keys.data(), n, rehashesPar);
+            end = high_resolution_clock::now();
+            auto durationPar = duration_cast<microseconds>(end - start).count();
+
+            printf("E1-%d t=%u exp=%u [Sequential] %8ld us, rehashes: %4u | [CUDA] %8ld us, rehashes: %4u\n", iter, t, exp, durationSeq, rehashesSeq, durationPar, rehashesPar);
         }
     }
 }
