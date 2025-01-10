@@ -74,6 +74,22 @@ I run the benchmark on
     required to find the optimal bound.
 \end{itemize}
 
+\subsection{Experiment 1}
+
+The MOPs of $t=2$ and $t=3$ hash functions are very similar, since the number of keys is relatively less than the size of the hash table, and evictions happen relatively less frequently.
+
+\subsection{Experiment 2}
+
+The MOP of $t=2$ hash functions is higher than that of $t=3$ hash functions, since less hash functions are used for lookups. The MOP decreases as the percentage of random generated keys increases, since the lookup process is more likely to fail.
+
+\subsection{Experiment 3}
+
+When $t=2$, both the CUDA and sequential implementations suffer from the rehashing failure when the hash table is too small (size $< 1.1n$). When $t=3$, the CUDA implementation is more robust and can handle smaller hash tables. The CUDA implementation is faster than the sequential implementation for all hash table sizes.
+
+\subsection{Experiment 4}
+
+In this case, the MOP has relatively larger distribution, and are less sensitive to eviction chain bounds. That's because the hash table size if relatively larger, and less rehashing is needed.
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{../figs/experiment1_t2.png}
