@@ -3,6 +3,7 @@
 #include <chrono>
 #include <random>
 #include <cmath>
+#include <fstream>
 #include "parallel.cuh"
 #include "vanilla.hpp"
 
@@ -18,6 +19,16 @@ void generateRandomKeys(vector<uint32_t> &keys, uint32_t n)
     for (uint32_t i = 0; i < n; ++i)
     {
         keys.push_back(dis(gen));
+    }
+}
+
+void readKeysFromFile(const string &filename, vector<uint32_t> &keys)
+{
+    ifstream file(filename);
+    uint32_t key;
+    while (file >> key)
+    {
+        keys.push_back(key);
     }
 }
 
@@ -212,6 +223,60 @@ void experiment4(uint32_t t)
     printf ("Best alpha for CUDA: %d\n", bestAlphaPar);
 }
 
+void createHashTableFromFile(const string &filename, uint32_t t, uint32_t size, uint32_t maxIter)
+{
+    vector<uint32_t> keys;
+    readKeysFromFile(filename, keys);
+    uint32_t n = keys.size();
+
+    uint32_t rehashesSeq = 0;
+    SequentialHash sh(size, t, maxIter);
+    sh.insertKeys(keys.data(), n, rehashesSeq);
+
+    std::cout << "Final table (Sequential):" << std::endl;
+    sh.printTables();
+
+    uint32_t rehashesPar = 0;
+    ParallelHash ph(size, t, maxIter);
+    ph.insertKeys(keys.data(), n, rehashesPar);
+
+    std::cout << "Final table (Parallel):" << std::endl;
+    ph.printTables();
+}
+
+void searchKeysFromFile(const string &hashTableFile, const string &searchKeysFile, uint32_t t, uint32_t size, uint32_t maxIter)
+{
+    vector<uint32_t> hashTableKeys;
+    readKeysFromFile(hashTableFile, hashTableKeys);
+    uint32_t n = hashTableKeys.size();
+
+    SequentialHash sh(size, t, maxIter);
+    uint32_t rehashesSeq = 0;
+    sh.insertKeys(hashTableKeys.data(), n, rehashesSeq);
+
+    ParallelHash ph(size, t, maxIter);
+    uint32_t rehashesPar = 0;
+    ph.insertKeys(hashTableKeys.data(), n, rehashesPar);
+
+    vector<uint32_t> searchKeys;
+    readKeysFromFile(searchKeysFile, searchKeys);
+
+    auto start = high_resolution_clock::now();
+    for (uint32_t key : searchKeys)
+        sh.lookupKey(key);
+    auto end = high_resolution_clock::now();
+    auto durationSeq = duration_cast<microseconds>(end - start).count();
+
+    bool* results = new bool[searchKeys.size()];
+    start = high_resolution_clock::now();
+    ph.lookupKeys(searchKeys.data(), results, searchKeys.size());
+    end = high_resolution_clock::now();
+    auto durationPar = duration_cast<microseconds>(end - start).count();
+    delete [] results;
+
+    printf("Search keys from file [Sequential] %8ld us | [CUDA] %8ld us\n", durationSeq, durationPar);
+}
+
 int main()
 {
     simpleDemo();
@@ -231,6 +296,19 @@ int main()
     printf("Experiment4:\n");
     experiment4(2);
     experiment4(3);
+
+    /** Below are example usages on how to create hash table from file and search keys from file.
+     * 
+     * To create a hash table:
+     * createHashTableFromFile("keys.txt", 2, 16, 4 * log2(16));
+     * 
+     * To search a set of keys from a file:
+     * searchKeysFromFile("keys.txt", "search_keys.txt", 2, 16, 4 * log2(16));
+     * 
+     * Key file format:
+     * 11231 24185 43431 5421 etc.
+     * 
+     **/
 
     return 0;
 }
