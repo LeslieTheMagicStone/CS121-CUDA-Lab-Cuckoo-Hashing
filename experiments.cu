@@ -166,14 +166,18 @@ void experiment4(uint32_t t)
     vector<uint32_t> keys;
     generateRandomKeys(keys, n);
 
-    int bestAlpha = 0;
-    long bestTime = LONG_MAX;
+    int bestAlphaSeq = 0;
+    long bestTimeSeq = LONG_MAX;
+
+    int bestAlphaPar = 0;
+    long bestTimePar = LONG_MAX;
 
     for (int i = 2; i <= 10; i++)
     {
         for (int iter = 0; iter < 5; iter++)
         {
             uint32_t maxIter = i * log2(n);
+
             SequentialHash sh(size, t, maxIter);
             uint32_t rehashesSeq = 0;
             auto start = high_resolution_clock::now();
@@ -181,30 +185,44 @@ void experiment4(uint32_t t)
             auto end = high_resolution_clock::now();
             auto durationSeq = duration_cast<microseconds>(end - start).count();
 
-            if (durationSeq < bestTime)
+            if (durationSeq < bestTimeSeq)
             {
-                bestTime = durationSeq;
-                bestAlpha = i;
+                bestTimeSeq = durationSeq;
+                bestAlphaSeq = i;
+            }
+            
+            ParallelHash ph(size, t, maxIter);
+            uint32_t rehashesPar = 0;
+            start = high_resolution_clock::now();
+            ph.insertKeys(keys.data(), n, rehashesPar);
+            end = high_resolution_clock::now();
+            auto durationPar = duration_cast<microseconds>(end - start).count();
+
+            if (durationPar < bestTimePar)
+            {
+                bestTimePar = durationPar;
+                bestAlphaPar = i;
             }
 
-            printf("E4-%d t=%u maxIter=%dlogn [Sequential] %8ld us, rehashes: %4u\n", iter, t, i, durationSeq, rehashesSeq);
+            printf("E4-%d t=%u maxIter=%-2dlogn [Sequential] %8ld us, rehashes: %4u | [CUDA] %8ld us, rehashes: %4u\n", iter, t, i, durationSeq, rehashesSeq, durationPar, rehashesPar);
         }
     }
 
-    printf("Best maxIter=%dlogn\n", bestAlpha);
+    printf ("Best alpha for Sequential: %d\n", bestAlphaSeq);
+    printf ("Best alpha for CUDA: %d\n", bestAlphaPar);
 }
 
 int main()
 {
     simpleDemo();
 
-    // printf("Experiment 1:\n");
-    // experiment1(2);
-    // experiment1(3);
+    printf("Experiment 1:\n");
+    experiment1(2);
+    experiment1(3);
 
-    // printf("Experiment 2:\n");
-    // experiment2(2);
-    // experiment2(3);
+    printf("Experiment 2:\n");
+    experiment2(2);
+    experiment2(3);
 
     printf("Experiment3:\n");
     experiment3(2);
